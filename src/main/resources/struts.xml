@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <!--struts.xml配置 Start-->
+    <!--请求编码设置为UTF-8-->
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <!--设置theme，防止页面出现多余代码-->
+    <constant name="struts.ui.theme" value="simple"/>
+    <!--启用开发模式 -->
+    <constant name="struts.devMode" value="true" />
+    <package name="default" extends="struts-default" namespace="/">
+        <!--如果不指定method，那么默认方法是execute()-->
+        <!--name:请求url名；class:请求处理action完全限定名；method：class中的具体方法名-->
+        <action name="test" class="com.zol.ssh.action.TestAction" method="test">
+            <!--name:method的返回值，type:页面跳转类型，为redirectAction表示跳转到action，login:需要跳转的action的name-->
+            <!--<result name="success" type="redirectAction">login</result>-->
+            <result name="success">/page/success.jsp</result>
+            <result name="error">/page/error.jsp</result>
+        </action>
+    </package>
+    <!--struts.xml配置 End-->
+</struts>
